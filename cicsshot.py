@@ -19,8 +19,23 @@ import threading
 import py3270
 from py3270 import Emulator,CommandError,FieldTruncateError,TerminatedError,WaitError,KeyboardStateError,FieldTruncateError,x3270App,s3270App
 
-DO_AUTHENT = False
-AUTHENTICATED = False
+
+####################################################################################
+#			              *******  CICSshot  ********                             
+####################################################################################
+#
+# CICSshot is a tool to screenshot CICS transactions using multithreading.
+# It supports authentication if you have credentials
+# example: python cicsshot.py 192.168.1.201 23 -a CICS file.txt 
+#                                                                              
+# Refer to https://github.com/ayoul3                                   
+#
+# Created by: Ayoul3 (@ayoul3__              	
+# Copyright GPL 2016                                             	  
+#####################################################################################
+
+
+
 SLEEP = 0.5
 queue = Queue.Queue()
 MAX_THREADS= 5
