@@ -43,7 +43,7 @@ optional arguments:
 
 ```
 ## Prerequisites
-3270 Python library [py3270](https://pypi.python.org/pypi/py3270/0.2.0)
+3270 Python library [py3270](https://pypi.python.org/pypi/py3270/0.2.0)  
 x3270, s3270 or wc3270.exe installed on your system
 
 ## Use case
