@@ -247,7 +247,7 @@ def do_authenticate(em, userid, password, pos_pass):
       whine('Incorrect password information','err')
       sys.exit()
    elif "DFHCE3549" in data[23]:
-      pass
+      return True
     
 def check_valid_applid(em, applid, do_authent, method = 1):
     """
@@ -260,6 +260,16 @@ def check_valid_applid(em, applid, do_authent, method = 1):
     em.send_enter()   
     sleep(SLEEP)
     
+    data = em.screen_get()
+    
+    if any("Invalid Command" in d for d in data):
+        whine('Invalid APPLID "'+applid+'"','err');
+        sys.exit()
+    
+    if any("Command is in progress" in d for d in data):
+        whine("Waiting for VTAM command completion",'warn')
+        sleep(1.3)        
+        
     if do_authent:
         pos_pass=1;
         data = em.screen_get()   
